@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HypeNight — Kolkata nightlife, from 4PM</title>
+  <meta name="description" content="HypeNight is Kolkata's youth entertainment brand. Drunches, takeovers and festive specials at the city's best venues. Get on the guestlist on WhatsApp.">
+  <meta name="theme-color" content="#160809">
+  <meta property="og:title" content="HypeNight CCU">
+  <meta property="og:description" content="Kolkata nightlife, from 4PM. Next up: The Big Fat Diwali Drunch, 7 November.">
+  <meta property="og:image" content="assets/img/diwali-drunch.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%238E1418'/%3E%3Cpath d='M9 8h4v6h6V8h4v16h-4v-6h-6v6H9z' fill='%23FFC629'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Sofia+Sans+Extra+Condensed:wght@400..900&family=Sofia+Sans:ital,wght@0,400..800;1,400..600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&text=HYPENIGHTCU&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Galada&text=%E0%A6%95%E0%A6%B2%E0%A6%95%E0%A6%BE%E0%A6%A4%E0%A6%BE%E0%A6%B0%E0%A6%BE%E0%A6%A4&display=swap">
+  <link rel="preload" as="image" href="assets/img/diwali-drunch.jpg">
+  <link rel="stylesheet" href="css/style.css?v=20261029c">
+</head>
+<body>
+  <script>
+    document.documentElement.classList.add('js');
+    // Every visit starts at the top with the hero, never mid-page:
+    // no restored scroll position and no jump to a #section left in the URL.
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+    // Theme before first paint: the visitor's saved choice, else their system setting.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('hn-theme'); } catch (e) {}
+      if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+    // Failsafe: never leave the loader covering the page.
+    setTimeout(function () { document.documentElement.classList.add('is-ready'); }, 5000);
+  </script>
+
+  <!-- Doors-at-four loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__clock"><span data-loader-h>15</span><i>:</i><span data-loader-m>56</span></div>
+    <p class="loader__line">Doors at four.</p>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+  <!-- Gradient-map filter that runs photos "through the red" -->
+  <svg class="sr-only" aria-hidden="true" focusable="false">
+    <filter id="redmap" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 1 0"/>
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues=".086 .557 .878 1 1"/>
+        <feFuncG type="table" tableValues=".031 .078 .141 .478 .776"/>
+        <feFuncB type="table" tableValues=".035 .094 .169 .102 .161"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <a class="logo" href="#top" aria-label="HypeNight, back to top">
+      <span class="logo__word">HYPENIGHT</span><span class="logo__city">CCU</span>
+    </a>
+    <p class="nav__tag">Kolkata's youth entertainment brand</p>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#calendar">Next up</a>
+      <a href="#inside">Inside Ginko</a>
+      <a href="#past">Past nights</a>
+      <a href="#about">About</a>
+      <a href="#getin">Get in</a>
+    </nav>
+    <button class="theme" type="button" data-theme-toggle aria-label="Switch to dark theme">
+      <svg class="theme__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="currentColor"/></svg>
+      <svg class="theme__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="btn btn--ink nav__cta" type="button" data-inquire>WhatsApp us</button>
+    <button class="nav__menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <button class="menu__close" type="button">Close</button>
+    <nav aria-label="Sections">
+      <a href="#calendar">Next up</a>
+      <a href="#inside">Inside Ginko</a>
+      <a href="#past">Past nights</a>
+      <a href="#about">About</a>
+      <a href="#getin">Get in</a>
+    </nav>
+    <button class="btn btn--sun" type="button" data-inquire>Message us on WhatsApp</button>
+  </div>
+
+  <main id="main">
+
+    <!-- HERO: the next event -->
+    <section class="hero" id="top" data-section>
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="hero__pitch">
+        <h1 class="hero__title" data-hero="title">The Big Fat Diwali Drunch</h1>
+        <p class="hero__copy" data-hero="pitch"></p>
+        <div class="hero__ctas">
+          <button class="btn btn--ink" type="button" data-hero="cta" data-cursor="WhatsApp">Get on the guestlist</button>
+          <a class="link" href="#calendar">See the details</a>
+        </div>
+      </div>
+
+      <figure class="hero__cover" data-cursor="Inquire">
+        <span class="hero__tag">Next up</span>
+        <img data-hero="poster" src="assets/img/diwali-drunch.jpg" alt="" width="1104" height="1360">
+      </figure>
+
+      <aside class="hero__date" aria-label="Date and time">
+        <p class="hero__day" data-hero="day">Saturday</p>
+        <p class="hero__big" data-hero="date">07 Nov</p>
+        <p class="hero__meta"><span data-hero="doors">4PM onwards</span><br><span data-hero="venue">Venue drops soon</span></p>
+        <div class="countdown" data-countdown role="timer" aria-live="off">
+          <div><b data-cd="d">00</b><span>days</span></div>
+          <div><b data-cd="h">00</b><span>hrs</span></div>
+          <div><b data-cd="m">00</b><span>min</span></div>
+          <div><b data-cd="s">00</b><span>sec</span></div>
+        </div>
+      </aside>
+
+      <!-- The HypeNight logo, redrawn as SVG from the brand's Instagram avatar -->
+      <div class="hero__logo">
+        <svg class="hnlogo" viewBox="0 0 640 160" role="img" aria-label="HypeNight CCU">
+          <defs>
+            <radialGradient id="hnlogo-bg" cx="50%" cy="45%" r="75%">
+              <stop offset="0" stop-color="#9a1418"/><stop offset="1" stop-color="#6c0a0d"/>
+            </radialGradient>
+          </defs>
+          <rect width="640" height="160" fill="url(#hnlogo-bg)"/>
+          <g class="hnlogo__type" fill="#F8E7E5">
+            <text x="40" y="96" textLength="236" lengthAdjust="spacingAndGlyphs">HYPE</text>
+            <path class="hnlogo__n" d="M277 54h10l40 42h-10z M327 54h7v42h-7z"/>
+            <text x="348" y="96" textLength="252" lengthAdjust="spacingAndGlyphs">IGHT</text>
+            <text class="hnlogo__city" x="472" y="128" textLength="92" lengthAdjust="spacing">CCU</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- RIVER: the wordmark reflected, brand statement -->
+    <section class="river" id="intro" data-section>
+
+      <div class="river__body">
+        <h2 class="statement" data-fill>We start at four and keep Kolkata up.</h2>
+        <p class="river__aside">Drunches, takeovers and festive specials, thrown with the city's best rooms and DJs. HypeNight is a youth entertainment brand out of CCU: we run events, collaborations and PR, and we put the right crowd on the list.</p>
+      </div>
+
+      <dl class="stats">
+        <div><dt>4PM</dt><dd>Doors open, every time</dd></div>
+        <div><dt>5</dt><dd>Venues we've taken over</dd></div>
+        <div><dt>3</dt><dd>Takeovers in October</dd></div>
+        <div><dt data-hero="stat">07.11</dt><dd>Next night out</dd></div>
+      </dl>
+    </section>
+
+    <!-- CALENDAR: upcoming events -->
+    <section class="calendar" id="calendar" data-section>
+      <header class="head">
+        <h2 class="head__title">On the calendar</h2>
+        <p class="head__copy">Everything coming up. Pick a night and we'll sort your guestlist or table on WhatsApp.</p>
+      </header>
+      <ol class="cal" data-calendar></ol>
+    </section>
+
+    <!-- INSIDE: a scroll-driven walk into Miss Ginko -->
+    <section class="inside" id="inside" data-section aria-label="Inside Miss Ginko">
+      <div class="inside__stage" data-inside>
+        <canvas class="inside__canvas" data-inside-canvas aria-hidden="true"></canvas>
+
+        <img class="inside__logo" src="assets/ginko/ginko-logo-512.jpg" alt="" aria-hidden="true">
+        <p class="inside__hint" aria-hidden="true">Scroll to walk in</p>
+
+        <div class="hud">
+          <div class="hud__top">
+            <p class="hud__live"><i aria-hidden="true"></i>Inside Miss Ginko</p>
+            <p class="hud__place">3rd floor, City Mart, Gariahat</p>
+            <p class="hud__clock" data-inside-clock aria-hidden="true">16:00</p>
+          </div>
+
+          <div class="caps">
+            <div class="cap" data-cap>
+              <h2 class="cap__title">A glasshouse on the roof</h2>
+              <p class="cap__copy">Daylight through a glass ceiling, green walls, long wooden tables. This is where a drunch starts.</p>
+            </div>
+            <div class="cap" data-cap>
+              <h3 class="cap__title">Then the sun goes down</h3>
+              <p class="cap__copy">The glass turns blue, the lamps come on and the room starts filling up.</p>
+            </div>
+            <div class="cap" data-cap>
+              <h3 class="cap__title">The bar lights up</h3>
+              <p class="cap__copy">Neon over the bottles, the screen rolling, the booth getting ready.</p>
+            </div>
+            <div class="cap" data-cap>
+              <h3 class="cap__title">And the night is ours</h3>
+              <p class="cap__copy">Lasers, a packed floor and a DJ who doesn't stop. This is a night at Miss Ginko.</p>
+              <div class="cap__ctas">
+                <button class="btn btn--sun" type="button" data-inquire data-cursor="WhatsApp">Get on the next list</button>
+              </div>
+            </div>
+          </div>
+
+          <ol class="rail" aria-hidden="true">
+            <li data-rail><span>The glasshouse</span><i></i></li>
+            <li data-rail><span>Sundown</span><i></i></li>
+            <li data-rail><span>The bar</span><i></i></li>
+            <li data-rail><span>The floor</span><i></i></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Shown instead of the walk-through when motion is reduced or scripts are off -->
+      <div class="inside__static">
+        <h2 class="head__title">Inside Miss Ginko</h2>
+        <div class="inside__stills">
+          <figure><img src="assets/ginko/still-1.jpg" alt="The glasshouse rooftop seating in daylight" loading="lazy"><figcaption>A glasshouse on the roof</figcaption></figure>
+          <figure><img src="assets/ginko/still-2.jpg" alt="The rooftop lounge after sunset" loading="lazy"><figcaption>Then the sun goes down</figcaption></figure>
+          <figure><img src="assets/ginko/still-3.jpg" alt="The neon-lit bar at night" loading="lazy"><figcaption>The bar lights up</figcaption></figure>
+          <figure><img src="assets/ginko/party-dj.jpg" alt="The DJ and a packed floor under lasers" loading="lazy"><figcaption>And the night is ours</figcaption></figure>
+        </div>
+      </div>
+      <p class="inside__credit">Door footage: Pexels. Venue footage: Mr Viewtuber on YouTube and @tatrixmusic on Instagram.</p>
+    </section>
+
+    <!-- PAST: posters dealt onto the wall -->
+    <section class="past" id="past" data-section>
+      <div class="past__stage">
+        <div class="past__intro">
+          <h2 class="head__title">Three takeovers, one October</h2>
+          <p class="head__copy">Every poster that went up this season. Tap one to see the night.</p>
+        </div>
+        <div class="past__wall" data-wall></div>
+      </div>
+
+      <div class="index">
+        <h3 class="index__title">The full list</h3>
+        <ol class="index__rows" data-index></ol>
+      </div>
+    </section>
+
+    <!-- MOMENTS: horizontal scanner -->
+    <section class="moments" id="moments" data-section>
+      <div class="moments__stage">
+        <header class="moments__head">
+          <h2 class="head__title">From the floor</h2>
+          <p class="head__copy">Reels and behind-the-scenes from recent nights. Everything that crosses the line goes red.</p>
+        </header>
+        <div class="moments__line" aria-hidden="true"><span>Hype</span><span>Night</span></div>
+        <div class="moments__track" data-moments></div>
+      </div>
+    </section>
+
+    <!-- RUN: how a drunch runs, laid out as an editorial sequence -->
+    <section class="steps" id="run" data-section>
+      <div class="steps__grid">
+        <div class="step step--1">
+          <p class="step__n"><span>[01]</span> 4PM</p>
+          <p class="step__copy">Doors open and the guestlist checks in. Daylight through the glass, drinks on the long tables.</p>
+        </div>
+        <figure class="steps__img steps__img--a"><img src="assets/night/step-4pm.jpg" alt="The glasshouse at Miss Ginko in afternoon light" loading="lazy"></figure>
+        <div class="step step--2">
+          <p class="step__n"><span>[02]</span> Sundown</p>
+          <p class="step__copy">The glass turns blue, the first sets start and the room fills up.</p>
+        </div>
+        <figure class="steps__img steps__img--b"><img src="assets/night/step-sundown.jpg" alt="The rooftop lounge just after sunset" loading="lazy"></figure>
+        <h2 class="steps__title"><span>Doors at four.</span> <span>Then the night</span> <span>takes over.</span></h2>
+        <figure class="steps__img steps__img--c"><img src="assets/night/step-afterdark.jpg" alt="The DJ working the decks" loading="lazy"></figure>
+        <div class="step step--3">
+          <p class="step__n"><span>[03]</span> After dark</p>
+          <p class="step__copy">The headliner takes the booth. Lights down, volume up.</p>
+        </div>
+        <figure class="steps__img steps__img--d"><img src="assets/night/step-late.jpg" alt="A packed floor with hands in the air" loading="lazy"></figure>
+        <div class="step step--4">
+          <p class="step__n"><span>[04]</span> Late</p>
+          <p class="step__copy">Last song, nobody leaving. The city is still talking about it the next day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VENUES: sticker wall -->
+    <section class="venues" id="venues" data-section>
+      <div class="venues__stage">
+        <header class="head head--center">
+          <h2 class="head__title">Rooms we've taken over</h2>
+          <p class="head__copy">Five of the city's busiest venues. Each badge opens the highlight on Instagram.</p>
+        </header>
+        <div class="stickers" data-stickers>
+          <span class="sticker sticker--word" style="--x:6%;--y:12%;--r:-9deg">4PM++</span>
+          <span class="sticker sticker--bn" style="--x:74%;--y:4%;--r:7deg" lang="bn">কলকাতা</span>
+          <span class="sticker sticker--stamp" style="--x:82%;--y:62%;--r:-6deg">On the list</span>
+          <span class="sticker sticker--tape" style="--x:2%;--y:68%;--r:4deg">Drunch szn</span>
+          <img class="sticker sticker--photo" style="--x:38%;--y:62%;--r:-4deg" src="assets/img/reel-chevron.jpg" alt="" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about" data-section>
+      <div class="about__hero">
+        <img class="about__bg" src="assets/night/about-hero.jpg" alt="" loading="lazy">
+        <p class="about__intro">HypeNight is a youth entertainment brand out of Kolkata, for people who would rather be in the room than watching it on someone's story.</p>
+        <h2 class="about__big">One crew for nights, artists and the list</h2>
+        <p class="about__mid">We pick the room, book the DJs, bring in the partners and run the guestlist, so a great night is one WhatsApp message away.</p>
+        <p class="about__accent" aria-hidden="true">Kolkata<br>after four</p>
+        <a class="btn btn--outline about__cta" href="#getin">Work with us <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__logo" aria-hidden="true"><span>HYPENIGHT</span><small>CCU</small></div>
+        <ul class="pillars">
+          <li class="pillar">
+            <h3 class="pillar__name">Events</h3>
+            <p>Drunches, takeovers and festive specials at rooms like Miss Ginko and Corridor. We handle the venue, the lineup and the list.</p>
+          </li>
+          <li class="pillar">
+            <h3 class="pillar__name">Collabs</h3>
+            <p>We co-host with venues, artists and brands. Inferno, Cult Affairs, Status, Noctra and Ragerz have all shared a poster with us.</p>
+          </li>
+          <li class="pillar">
+            <h3 class="pillar__name">PR</h3>
+            <p>Launches and promotions aimed at Kolkata's party crowd, through our pages and our partners'.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="partners" aria-label="Partners">
+        <div class="partners__row" data-partners>
+          <span>Inferno</span><span>Cult Affairs</span><span>Status</span><span>Noctra</span><span>Ragerz</span><span>Trivia</span><span>Miss Ginko</span><span>Corridor</span><span>Rumors</span><span>Lucky Tiger</span><span>Realityz</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOICES -->
+    <section class="voices" id="voices" data-section>
+      <blockquote class="voice voice--lead">
+        <p>“Am in love and on the guest list.”</p>
+        <footer>A comment on our “Are you in love?” post</footer>
+      </blockquote>
+      <div class="voices__grid">
+        <blockquote class="voice"><p>“Diwali sorted.”</p><footer>On the Diwali Drunch drop</footer></blockquote>
+        <blockquote class="voice"><p>“Time to shutdown CCU.”</p><footer>On the RJ x DIVY announcement</footer></blockquote>
+        <blockquote class="voice"><p>“CCU shutdown like last time.”</p><footer>On the UK Soirée announcement</footer></blockquote>
+      </div>
+    </section>
+
+    <!-- GET IN: WhatsApp passes -->
+    <section class="getin" id="getin" data-section>
+      <header class="head head--light">
+        <h2 class="head__title">Get in</h2>
+        <p class="head__copy">No ticket counter. Tell us what you're after and we'll sort it on WhatsApp, usually the same day.</p>
+      </header>
+      <div class="passes">
+        <article class="pass pass--sun">
+          <div class="pass__top"><span>For your crew</span><b>Guestlist</b></div>
+          <ul>
+            <li>Your whole group, on the list at the door</li>
+            <li>Pre-guestlist opens before every night</li>
+            <li>Entry details confirmed on chat</li>
+          </ul>
+          <button class="btn btn--paper" type="button" data-inquire data-kind="Guestlist">Ask for guestlist</button>
+        </article>
+        <article class="pass pass--marigold">
+          <div class="pass__top"><span>For the big nights</span><b>Pre-table</b></div>
+          <ul>
+            <li>A table held for you before doors</li>
+            <li>Good for birthdays and big groups</li>
+            <li>Limited per night, first come first served</li>
+          </ul>
+          <button class="btn btn--paper" type="button" data-inquire data-kind="Table">Ask about tables</button>
+        </article>
+        <article class="pass pass--red">
+          <div class="pass__top"><span>For brands, venues, artists</span><b>Collab</b></div>
+          <ul>
+            <li>Co-host a night with us</li>
+            <li>Promotion and PR to Kolkata's party crowd</li>
+            <li>Bookings for DJs and acts</li>
+          </ul>
+          <button class="btn btn--paper" type="button" data-inquire data-kind="Collab or PR">Pitch a collab</button>
+        </article>
+      </div>
+      <div class="talk">
+        <h3 class="talk__title">Let's talk about your night.</h3>
+        <form class="talk__form" data-talk novalidate>
+          <label class="talk__field"><span>Name</span><input name="name" type="text" autocomplete="name" required></label>
+          <label class="talk__field"><span>Phone or email</span><input name="contact" type="text" autocomplete="email" required></label>
+          <label class="talk__field talk__field--wide"><span>What you have in mind</span><input name="msg" type="text" placeholder="A brand launch, a birthday takeover, booking a DJ" required></label>
+          <p class="talk__error" data-talk-error hidden>Fill in all three so we know who to reply to.</p>
+          <button class="talk__go" type="submit" aria-label="Send on WhatsApp" data-cursor="Send"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+        </form>
+      </div>
+      <p class="getin__note">Prefer to call? <a class="link link--light" data-phone-0 href="#"></a> or <a class="link link--light" data-phone-1 href="#"></a></p>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" data-section>
+    <div class="footer__top">
+      <h2 class="footer__title">See you on the guest list.</h2>
+      <div class="footer__cols">
+        <nav aria-label="Footer">
+          <h3>On this page</h3>
+          <a class="link" href="#calendar">Next up</a>
+          <a class="link" href="#past">Past nights</a>
+          <a class="link" href="#inside">Inside Ginko</a>
+          <a class="link" href="#venues">Venues</a>
+          <a class="link" href="#about">About</a>
+          <a class="link" href="#getin">Get in</a>
+        </nav>
+        <div>
+          <h3>Find us</h3>
+          <a class="link" data-ig href="#" target="_blank" rel="noopener">Instagram</a>
+          <button class="link" type="button" data-inquire>WhatsApp</button>
+          <a class="link" data-phone-0 href="#"></a>
+        </div>
+      </div>
+    </div>
+    <p class="footer__legal">© 2026 HypeNight CCU, Kolkata. Events, collaborations and PR.</p>
+    <div class="footer__logo" aria-label="HypeNight CCU">
+      <span class="footer__mark">HYPE<b>N</b>IGHT</span><span class="footer__city">CCU</span>
+    </div>
+  </footer>
+
+  <!-- Chande-style side tab -->
+  <button class="sidetab" type="button" data-inquire data-sidetab>
+    <span class="sidetab__dot" aria-hidden="true"></span>
+    <span class="sidetab__text" data-sidetab-text>Guestlist open</span>
+  </button>
+
+  <!-- Inquiry sheet -->
+  <dialog class="sheet" id="inquiry" aria-labelledby="inquiry-title">
+    <form class="sheet__form" method="dialog" data-inquiry-form>
+      <header class="sheet__head">
+        <h2 id="inquiry-title">Message us on WhatsApp</h2>
+        <button class="sheet__x" type="button" value="cancel" data-close aria-label="Close">×</button>
+      </header>
+
+      <label class="field">
+        <span>Which night</span>
+        <select name="event" data-event-select></select>
+      </label>
+
+      <fieldset class="field field--chips">
+        <legend>What you need</legend>
+        <label><input type="radio" name="kind" value="Guestlist" checked><span>Guestlist</span></label>
+        <label><input type="radio" name="kind" value="Table"><span>Table</span></label>
+        <label><input type="radio" name="kind" value="Collab or PR"><span>Collab or PR</span></label>
+      </fieldset>
+
+      <div class="field field--row">
+        <label class="field">
+          <span>Your name</span>
+          <input name="name" type="text" autocomplete="name" placeholder="Riya Sen" required>
+        </label>
+        <div class="field">
+          <span id="size-label">How many</span>
+          <div class="stepper" role="group" aria-labelledby="size-label">
+            <button type="button" data-step="-1" aria-label="Fewer people">−</button>
+            <output name="size" data-size>2</output>
+            <button type="button" data-step="1" aria-label="More people">+</button>
+          </div>
+        </div>
+      </div>
+
+      <label class="field">
+        <span>Anything else <em>(optional)</em></span>
+        <textarea name="note" rows="2" placeholder="Birthday, arrival time, dress code questions"></textarea>
+      </label>
+
+      <div class="bubble" aria-live="polite">
+        <span class="bubble__label">You'll send</span>
+        <p data-preview></p>
+      </div>
+
+      <p class="sheet__error" data-error hidden>Add your name so we know who's coming.</p>
+      <button class="btn btn--wa" type="submit">Open WhatsApp</button>
+    </form>
+  </dialog>
+
+  <!-- Poster lightbox -->
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+    <div class="lightbox__inner">
+      <img data-lb="img" alt="">
+      <div class="lightbox__info">
+        <p class="lightbox__date" data-lb="date"></p>
+        <h2 id="lightbox-title" data-lb="title"></h2>
+        <dl>
+          <div><dt>Venue</dt><dd data-lb="venue"></dd></div>
+          <div><dt>On the decks</dt><dd data-lb="lineup"></dd></div>
+          <div><dt>With</dt><dd data-lb="partners"></dd></div>
+        </dl>
+        <p data-lb="pitch"></p>
+        <div class="lightbox__ctas">
+          <button class="btn btn--ink" type="button" data-inquire data-lb="next">Get on the next one</button>
+          <a class="link" data-lb="ig" target="_blank" rel="noopener">See the post</a>
+        </div>
+      </div>
+      <button class="sheet__x lightbox__x" type="button" data-close aria-label="Close">×</button>
+    </div>
+  </dialog>
+
+  <div class="mbar"><button class="btn btn--sun" type="button" data-inquire>Get on the guestlist</button></div>
+
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/data.js?v=20261029c"></script>
+  <script src="js/main.js?v=20261029c"></script>
+  <script type="importmap">
+    { "imports": { "three": "./js/vendor/three/three.module.js", "three/addons/": "./js/vendor/three/addons/" } }
+  </script>
+  <script type="module" src="js/inside3d.js?v=20261029c"></script>
+</body>
+</html>
