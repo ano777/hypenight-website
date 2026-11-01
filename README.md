@@ -1,6 +1,4 @@
-# HypeNight website (prototype)
-
-Static site, no build step. GSAP + ScrollTrigger + Lenis and three.js 0.186.1 are vendored in `js/vendor/`.
+# HypeNight website
 
 ## Host it
 
